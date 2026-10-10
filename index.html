@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#EDE8F1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administración de combos | Los Combos de Lía</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%9C%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="common.js"></script>
+</head>
+<body class="admin-page">
+
+  <div id="page-loader" class="page-loader" role="status" aria-live="polite">
+    <div class="loader-orb"><div class="loader-orb-inner"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-heart" fill="url(#g-heart)"/></svg></div></div>
+    <p class="loader-brand">Los Combos de Lía</p>
+    <div class="loader-bar" aria-hidden="true"><span></span></div>
+    <span class="sr-only">Cargando…</span>
+  </div>
+
+  <header class="admin-header">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="aurora a1"></span><span class="aurora a2"></span><span class="aurora a3"></span>
+    </div>
+    <div class="admin-header-inner">
+      <div>
+        <h1>Los Combos de Lía</h1>
+        <p>Gestiona las opciones que aparecen en el catálogo.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-wrap">
+    <section id="admin-app" class="panel">
+      <div class="admin-toolbar">
+        <h2>Combos</h2>
+        <button id="btn-nuevo" class="btn btn-primary" type="button">+ Agregar combo</button>
+      </div>
+
+      <div id="form-panel" class="form-panel is-hidden">
+        <h3 id="form-title">Nuevo combo</h3>
+        <form id="combo-form" class="admin-form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="combo-name">Nombre del combo</label>
+              <input id="combo-name" type="text" maxlength="80" placeholder="Ej. Combo Especial" required>
+            </div>
+            <div class="field">
+              <label for="combo-category">Categoría</label>
+              <input id="combo-category" type="text" maxlength="40" list="category-list" placeholder="Elige una o escribe una nueva" autocomplete="off" required>
+              <datalist id="category-list"></datalist>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="combo-price">Precio</label>
+              <input id="combo-price" type="number" step="0.01" min="0" max="9999999" inputmode="decimal" placeholder="0.00" required>
+            </div>
+            <div class="field">
+              <label for="combo-photo">Foto del combo</label>
+              <input id="combo-photo" type="file" accept="image/*">
+            </div>
+          </div>
+          <div class="field">
+            <label for="combo-description">Descripción</label>
+            <textarea id="combo-description" rows="3" maxlength="300" placeholder="Ej. Opción disponible para solicitar y entregada con seguridad."></textarea>
+          </div>
+          <div class="field">
+            <span class="file-help">La imagen se comprime automáticamente antes de guardarla. No necesitas pegar ninguna URL.</span>
+            <img id="photo-preview" class="image-preview" alt="Vista previa de la foto del combo">
+          </div>
+          <label class="check-row"><input id="combo-active" type="checkbox" checked> Mostrar este combo en el catálogo</label>
+          <div class="admin-actions">
+            <button id="btn-save" class="btn btn-primary" type="submit">Guardar combo</button>
+            <button id="btn-cancel" class="btn" type="button">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="admin-list" class="admin-list"></div>
+    </section>
+  </main>
+
+  <!-- Confirmación de eliminación -->
+  <div id="confirm-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+    <div class="modal">
+      <h2 id="confirm-title">Eliminar combo</h2>
+      <p id="confirm-text">¿Seguro que deseas eliminar este combo?</p>
+      <div class="modal-actions">
+        <button id="btn-cancel-delete" class="btn" type="button">Cancelar</button>
+        <button id="btn-confirm-delete" class="btn btn-danger" type="button">Sí, eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../config/env.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

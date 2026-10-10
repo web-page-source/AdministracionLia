@@ -1,0 +1,53 @@
+/* =========================================================
+   LOS COMBOS DE LÍA — admin.css
+   Estilos exclusivos del panel (se suma a styles.css)
+   ========================================================= */
+.admin-header {
+  position: relative; isolation: isolate; overflow: hidden;
+  margin: 12px clamp(12px, 3vw, 40px) 0; padding: clamp(36px, 6vw, 64px) clamp(22px, 5vw, 70px) clamp(64px, 8vw, 90px);
+  border-radius: 40px;
+  background: linear-gradient(120deg, var(--fx-1), var(--fx-2), var(--fx-3), var(--fx-4), var(--fx-1)); background-size: 300% 300%; animation: gradientShift 20s ease infinite;
+  box-shadow: var(--neu-raised), inset 8px 8px 24px rgba(255,255,255,.2), inset -8px -8px 24px rgba(70,59,140,.14);
+}
+.admin-header-inner { position: relative; z-index: 2; max-width: 1120px; margin: 0 auto; }
+.admin-header h1 { margin-top: 0; font-size: clamp(40px, 6vw, 72px); text-shadow: 0 2px 0 rgba(248,245,250,.45), 0 8px 22px rgba(70,59,140,.22); }
+.admin-header p { margin-top: 10px; font-weight: 600; }
+
+.admin-wrap { position: relative; z-index: 3; max-width: 1180px; margin: -44px auto 70px; padding: 0 clamp(12px, 3vw, 28px); }
+
+.admin-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 26px; }
+.admin-toolbar h2 { font-size: clamp(36px, 5vw, 52px); }
+.admin-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.admin-form { display: grid; gap: 18px; margin-top: 22px; }
+.form-panel { margin-bottom: 34px; padding: clamp(20px, 3vw, 30px); border-radius: 30px; background: var(--bg); box-shadow: var(--neu-well); }
+.form-panel h3 { font-size: 34px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.file-help { font-size: .88rem; color: var(--ink-soft); font-weight: 700; }
+.field input[type="file"] { padding: 12px 14px; }
+.image-preview { display: none; width: 190px; max-width: 100%; aspect-ratio: 4 / 3; object-fit: cover; margin-top: 4px; border-radius: 20px; box-shadow: var(--neu-raised-sm); }
+.check-row { display: flex; align-items: center; gap: 12px; font-weight: 800; cursor: pointer; }
+.check-row input { width: 22px; height: 22px; accent-color: var(--violet); cursor: pointer; }
+
+/* Lista agrupada por categoría */
+.admin-list { display: grid; gap: clamp(36px, 5vw, 54px); }
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(22px, 3vw, 32px); }
+.admin-combo { position: relative; padding: 14px 14px 20px; border-radius: var(--radius); background: var(--bg); box-shadow: var(--neu-raised); transition: transform .3s ease; }
+.admin-combo:hover { transform: translateY(-4px); }
+.admin-photo { position: relative; aspect-ratio: 4 / 3; border-radius: 24px; overflow: hidden; background: linear-gradient(135deg, var(--lavender-soft), var(--lavender)); }
+.admin-photo::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: var(--neu-well-sm); pointer-events: none; }
+.admin-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.admin-combo-body { padding: 18px 8px 0; }
+.admin-combo h3 { font-size: 30px; }
+.admin-combo p { margin-top: 6px; min-height: 48px; color: var(--ink-soft); }
+.admin-meta { display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+.admin-meta .price { margin: 0; font-size: 22px; padding: 6px 16px; }
+.status-pill { padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; background: var(--bg); box-shadow: var(--neu-well-sm); color: var(--violet-dark); }
+.status-pill.off { color: var(--danger); }
+.admin-card-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.admin-card-actions .btn { min-height: 44px; padding: 8px 16px; font-size: .92rem; }
+
+@media (max-width: 650px) {
+  .admin-header { border-radius: 32px; }
+  .form-row { grid-template-columns: 1fr; }
+  .admin-wrap { margin-top: -34px; }
+}
